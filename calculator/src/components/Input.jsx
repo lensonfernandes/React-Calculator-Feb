@@ -3,11 +3,15 @@ import React, { useEffect, useState } from "react";
 const Input = () => {
   let [num1, setNum1] = useState("");
   let [num2, setNum2] = useState("");
-  let [result, setResult] = useState(0);
+  let [result, setResult] = useState("");
   let [message, setMessage] = useState([]);
+  let [info, setInfo] = useState([]);
 
   let runCalculate = (event) => {
     let id = event.target.id;
+
+    setMessage([]);
+    setInfo([]);
 
     checkValidation();
     findResult({ id });
@@ -46,42 +50,42 @@ const Input = () => {
     }
 
     if (num1.includes(".")) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num1 is a Floating number"];
           });
     //  setMessage([...message, "Num1 is a Floating number"]);
       // console.log('Num1 is a Floating number')
     }
     if (num2.includes(".")) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num2 is a Floating number"];
           });
       //setMessage([...message, "Num2 is a Floating number"]);
       //console.log('Num2 is a Floating number')
     }
     if (num1 > 0) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num1 is Positive"];
           });
     // setMessage([...message, "Num1 is Positive"]);
       // console.log('Num1 is Positive')
     }
     if (num1 < 0) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num1 is Negative"];
           });
     //  setMessage([...message, "Num1 is Negative"]);
       //console.log('Num1 is Negative')
     }
     if (num2 > 0) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num2 is Positive"];
           });
     //  setMessage([...message, "Num2 is Positive"]);
       //console.log('Num2 is Positive')
     }
     if (num2 < 0) {
-        setMessage((prevState) => {
+        setInfo((prevState) => {
             return [...prevState, "Num2 is Negative"];
           });
       //setMessage([...message, "Num2 is Negative"]);
@@ -113,12 +117,16 @@ const Input = () => {
   }, [num2]);
 
   useEffect(() => {
-    //  console.log(result)
+     console.log(result)
   }, [result]);
 
   useEffect(() => {
     console.log(message);
   }, [message]);
+
+  useEffect(() => {
+    console.log(info);
+  }, [info]);
 
   return (
     <div className="d-flex flex-column gap-2">
@@ -160,6 +168,11 @@ const Input = () => {
           /{" "}
         </button>
       </div>
+     { (result.length!=0) && (message.length==0) && <div className=" text-white">Result = {result}</div>}
+     {( message.length>0) && (<div className='text-danger'>Error: { message.toString().split(",").join("; ")}</div>)}
+      {(info.length>0) && (<div className='text-info'>Info: {info.toString().split(",").join("; ")}</div>)}
+      {(message.length==0)&&(result.length!=0) && <div className='text-success'>Success: Your result is shown above</div>}
+      
     </div>
   );
 };
