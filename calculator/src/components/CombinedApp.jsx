@@ -129,12 +129,13 @@ const CombinedApp = () => {
   }, [info]);
 
   return (
-    <div className="d-flex flex-column gap-2">
+    <div className="d-flex flex-column gap-4">
       <input
         type="text"
         placeholder="Num 1"
-        className="bg-black text-white border-white"
+        className="bg-black text-white border-white form-control"
         value={num1}
+        style={{width:"290px", height:"2.5rem"}}
         onChange={(e) => {
           setNum1(e.target.value);
           //  console.log(num1);
@@ -143,27 +144,28 @@ const CombinedApp = () => {
       <input
         type="text"
         placeholder="Num 2"
-        className="bg-black text-white border-white"
+        className="bg-black text-white border-white form-control"
         value={num2}
+        style={{width:"290px", height:"2.5rem"}}
         onChange={(e) => {
           setNum2(e.target.value);
         }}
       />
 
       <div className="d-flex justify-content-start gap-3 mt-2"  >
-        <button className="rounded" onClick={runCalculate} id={"1"} style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}   >
+        <button className="rounded" onClick={runCalculate} id={"1"} style={{boxSizing:"border-box", padding:"0.5vw", width:'62px'}}   >
           {" "}
           +{" "}
         </button>
-        <button className="rounded" onClick={runCalculate} id={"2"} style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}  >
+        <button className="rounded" onClick={runCalculate} id={"2"} style={{boxSizing:"border-box", padding:"0.5vw", width:'62px'}}  >
           {" "}
           -{" "}
         </button>
-        <button className="rounded" onClick={runCalculate} id={"3"} style={{boxSizing:"border-box", padding:"0.5vw",width:'2vw'}}  >
+        <button className="rounded" onClick={runCalculate} id={"3"} style={{boxSizing:"border-box", padding:"0.5vw",width:'62px'}}  >
           {" "}
           *{" "}
         </button>
-        <button className="rounded" onClick={runCalculate} id={"4"}style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}   >
+        <button className="rounded" onClick={runCalculate} id={"4"}style={{boxSizing:"border-box", padding:"0.5vw", width:'62px'}}   >
           {" "}
           /{" "}
         </button>

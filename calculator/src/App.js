@@ -10,7 +10,7 @@ import Message from './components/Message';
 function App() {
   return (
     <div className="App bg-black vh-100 ">
-      <div  className='d-flex  flex-column justify-content-center align-items-start h-100 w-100 bg-black ms-5 gap-3'>
+      <div  className='d-flex  flex-column justify-content-center align-items-start h-100 w-100 bg-black container' >
          <Heading />
          <CombinedApp />
          {/* <Operators />
