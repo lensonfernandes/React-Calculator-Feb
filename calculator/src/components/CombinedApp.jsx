@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Input = () => {
+const CombinedApp = () => {
   let [num1, setNum1] = useState("");
   let [num2, setNum2] = useState("");
   let [result, setResult] = useState("");
@@ -150,20 +150,20 @@ const Input = () => {
         }}
       />
 
-      <div className="row ">
-        <button className="col-auto ms-2" onClick={runCalculate} id={"1"}>
+      <div className="d-flex justify-content-start gap-3 mt-2"  >
+        <button className="rounded" onClick={runCalculate} id={"1"} style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}   >
           {" "}
           +{" "}
         </button>
-        <button className="col-auto" onClick={runCalculate} id={"2"}>
+        <button className="rounded" onClick={runCalculate} id={"2"} style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}  >
           {" "}
           -{" "}
         </button>
-        <button className="col-auto" onClick={runCalculate} id={"3"}>
+        <button className="rounded" onClick={runCalculate} id={"3"} style={{boxSizing:"border-box", padding:"0.5vw",width:'2vw'}}  >
           {" "}
           *{" "}
         </button>
-        <button className="col-auto" onClick={runCalculate} id={"4"}>
+        <button className="rounded" onClick={runCalculate} id={"4"}style={{boxSizing:"border-box", padding:"0.5vw", width:'2vw'}}   >
           {" "}
           /{" "}
         </button>
@@ -177,4 +177,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default CombinedApp;
